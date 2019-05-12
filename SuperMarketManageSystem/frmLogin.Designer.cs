@@ -20,6 +20,13 @@
             base.Dispose(disposing);
         }
 
+        private System.Windows.Forms.Label sysName;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Label lbPassword;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtPassword;
     }
 }
 
