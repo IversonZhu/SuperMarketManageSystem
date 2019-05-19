@@ -20,6 +20,7 @@ namespace SuperMarketManageSystem
         }
 
         #region 操作
+        //返回
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -29,6 +30,10 @@ namespace SuperMarketManageSystem
         private void btnChange_Click(object sender, EventArgs e)
         {
             //非空验证
+            if (CheckInput())
+            {
+                string sql_str = string.Format("@update [User] set PassWord='{0}' where UserID='{1}'",txtPassword.Text.Trim(),user.UserID);
+            }
         }
 
         #region 非空验证
@@ -38,9 +43,22 @@ namespace SuperMarketManageSystem
         /// <returns></returns>
         private bool CheckInput()
         {
-            if (txtPassword.Text.Trim() == "" || txtNewPassword.Text.Trim() == "" || txtAgainNewPassword.Text.Trim() == "")
+            if (txtPassword.Text.Trim() == "" )
             {
-                MessageBox.Show("请输入用户名和密码");
+                MessageBox.Show("请输入原密码！");
+                return false;
+            }
+            if (txtPassword.Text.Trim() != user.Password) {
+                MessageBox.Show("原密码输入错误！");
+                return false;
+            }
+            if (txtNewPassword.Text.Trim() == "") {
+                MessageBox.Show("请输入新密码！");
+                return false;
+            }
+            if (txtNewPassword.Text.Trim() != txtAgainNewPassword.Text.Trim())
+            {
+                MessageBox.Show("两次输入的密码不一致，请重新输入！");
                 return false;
             }
             return true;

@@ -10,7 +10,7 @@ namespace SuperMarketManageSystem
 {
     public class DBHelper
     {
-        private string connStr = @"Data Source=.;Initial Catalog=stu_sup_market_sys;User Id=sa;Pwd=zhy19930816";
+        private string connStr = @"Data Source=.;Initial Catalog=stu_super_market_sys;User Id=sa;Pwd=zhy19930816";
         private SqlConnection conn;
 
         /// <summary>
